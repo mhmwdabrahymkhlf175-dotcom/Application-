@@ -10,14 +10,42 @@
     <meta name="outhor" content="Engineer Mahmoud Ebrahim">
     <meta name="keywords" content="Html,css,JS,Coding Html and css">
     <title>Appexy</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        .navLink {
+            position: relative;
+            transition: .3s;
+        }
 
-    <script>
-        tailwind.config = { darkMode: 'class' }
-    </script>
+        .navLink::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0%;
+            height: 2px;
+            background: #2563eb;
+            transition: .3s;
+        }
 
+        .navLink:hover {
+            color: #2563eb;
+        }
+
+        .navLink:hover::after {
+            width: 100%;
+        }
+
+        .sideLink {
+            transition: .3s;
+        }
+
+        .sideLink:hover {
+            color: #2563eb;
+            transform: translateX(8px);
+        }
+    </style>
 </head>
 
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
@@ -112,92 +140,6 @@ transition-all duration-300 ease-in-out"></span>
         </div>
     </section>
 
-
-    <style>
-        .navLink {
-            position: relative;
-            transition: .3s;
-        }
-
-        .navLink::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 0%;
-            height: 2px;
-            background: #2563eb;
-            transition: .3s;
-        }
-
-        .navLink:hover {
-            color: #2563eb;
-        }
-
-        .navLink:hover::after {
-            width: 100%;
-        }
-
-        .sideLink {
-            transition: .3s;
-        }
-
-        .sideLink:hover {
-            color: #2563eb;
-            transform: translateX(8px);
-        }
-    </style>
-
-
-    <script>
-
-        const html = document.documentElement
-        const toggle = document.getElementById('darkToggle')
-        const ball = document.getElementById('ball')
-
-
-        // ===== تحميل الحالة =====
-        if (localStorage.getItem('theme') === 'dark') {
-            html.classList.add('dark')
-            toggle.checked = true
-            ball.style.transform = "translateX(24px)"
-        }
-
-
-        // ===== تبديل =====
-        toggle.addEventListener('change', () => {
-            if (toggle.checked) {
-                html.classList.add('dark')
-                ball.style.transform = "translateX(24px)"
-                localStorage.setItem('theme', 'dark')
-            } else {
-                html.classList.remove('dark')
-                ball.style.transform = "translateX(0px)"
-                localStorage.setItem('theme', 'light')
-            }
-        })
-
-
-        // ===== Sidebar =====
-        const menuBtn = document.getElementById("menuBtn")
-        const closeBtn = document.getElementById("closeBtn")
-        const sidebar = document.getElementById("sidebar")
-        const overlay = document.getElementById("overlay")
-
-        menuBtn.onclick = () => {
-            sidebar.style.right = "0"
-            overlay.classList.remove("hidden")
-        }
-
-        function hide() {
-            sidebar.style.right = "-260px"
-            overlay.classList.add("hidden")
-        }
-
-        closeBtn.onclick = hide
-        overlay.onclick = hide
-
-    </script>
     <!-- Features Section -->
     <section class="bg-white dark:bg-gray-950 py-20 px-6 md:px-20">
         <!-- Header -->
@@ -447,7 +389,61 @@ transition-all duration-300 ease-in-out"></span>
             </div>
         </div>
     </footer>
+    
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    
+    <script>
 
+        var html = document.documentElement
+        var toggle = document.getElementById('darkToggle')
+        const ball = document.getElementById('ball')
+
+
+        // ===== تحميل الحالة =====
+        if (localStorage.getItem('theme') === 'dark') {
+            html.classList.add('dark')
+            toggle.checked = true
+            ball.style.transform = "translateX(24px)"
+        }
+
+
+        // ===== تبديل =====
+        toggle.addEventListener('change', () => {
+            if (toggle.checked) {
+                html.classList.add('dark')
+                ball.style.transform = "translateX(24px)"
+                localStorage.setItem('theme', 'dark')
+            } else {
+                html.classList.remove('dark')
+                ball.style.transform = "translateX(0px)"
+                localStorage.setItem('theme', 'light')
+            }
+        })
+
+
+        // ===== Sidebar =====
+        const menuBtn = document.getElementById("menuBtn")
+        const closeBtn = document.getElementById("closeBtn")
+        const sidebar = document.getElementById("sidebar")
+        const overlay = document.getElementById("overlay")
+
+        menuBtn.onclick = () => {
+            sidebar.style.right = "0"
+            overlay.classList.remove("hidden")
+        }
+
+        function hide() {
+            sidebar.style.right = "-260px"
+            overlay.classList.add("hidden")
+        }
+
+        closeBtn.onclick = hide
+        overlay.onclick = hide
+
+    </script>
+    
     <script>
         const toggle = document.getElementById('darkToggle');
         const html = document.documentElement;
@@ -466,7 +462,6 @@ transition-all duration-300 ease-in-out"></span>
             toggle.checked = true;
         }
     </script>
-
 
 </body>
 
